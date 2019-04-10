@@ -1,0 +1,142 @@
+<!--
+    Author: Srinivas Namballa
+    Date Created: 09/04/2019
+    Description: This html page is used to design the Students Dashboard of Udyog.com
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Udyog - Student Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/studentDashboard.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <h2 class="navHeading">Student Dashboard</h2>
+    </nav>
+
+    <p></p>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="form-inline">
+                    <div class="form-group mb-2">
+                        <label class="sr-only">search</label>
+                        <input type="text" class="form-control form-control-lg" id="inputSearch" placeholder="Search jobs by skills, designation etc.">
+                    </div>
+                    <button type="submit" class="btn btn-primary mx-sm-5 mb-2">Search</button>
+                </form>
+            </div>
+
+            <div class="col-md-5" id="profilePic">
+                <img src="Images/profile-picture.jpg" class="rounded float-right img-fluid" id="imgResize" alt="Profile-picture">
+            </div>
+
+            <div class="col-md-9">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Recommended Jobs</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="">Web Developer, SEO Analyst Freshers</a>
+                                <p></p>
+                                <a href="">Walk - In for UI Developers - 26th Mar'19 - Freshers to Three yrs exp</a>
+                                <p></p>
+                                <a href="">Hiring for Nodejs Freshers with Minfy Technologies in Hyderabad</a>
+                                <p></p>
+                                <a href="">FULL STACK DEVELOPER NODE JS</a>
+                                <p></p>
+                                <a href="">Node.js Backend Developer - Mongodb/ Express.js</a>
+                                <p></p>
+                                <a href="">Software Backend Engineer - Python/ AWS/ Mongodb</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-3" id="studentName">
+                <h2>Student Name</h2>
+            </div>
+
+            <div class="col-md-4">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Application Summary</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="">FULL STACK DEVELOPER NODE JS</a>
+                                <p></p>
+                                <a href="">Node.js Backend Developer - Mongodb/ Express.js</a>
+                                <p></p>
+                                <a href="">Software Backend Engineer - Python/ AWS/ Mongodb</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-4">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Saved Jobs</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="">Web Developer, SEO Analyst Freshers</a>
+                                <p></p>
+                                <a href="">Walk - In for UI Developers - 26th Mar'19 - Freshers to Three yrs exp</a>
+                                <p></p>
+                                <a href="">Hiring for Nodejs Freshers with Minfy Technologies in Hyderabad</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-4">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Top Companies Hiring</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href=""><img src="Images/Amazon-logo.jpg" alt="Amazon-logo" class="topCompanies"></a>
+                                
+                                <a href=""><img src="Images/tata-consultancy-services-tcs-logo.png" alt="TCS-logo" class="topCompanies"></a>
+                                <p></p>
+                                <a href=""><img src="Images/capgemini-logo.jpg" alt="Capgemini-logo" class="topCompanies"></a>
+
+                                <a href=""><img src="Images/Infosys-logol.jpg" alt="Infosys-logo" class="topCompanies"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

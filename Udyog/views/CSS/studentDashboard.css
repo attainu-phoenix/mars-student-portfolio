@@ -1,0 +1,25 @@
+.navHeading {
+    color: white
+}
+
+#imgResize {
+    height: 100px;
+    width: 100px
+}
+
+#inputSearch {
+    width: 20em
+}
+
+#profilePic {
+    margin-left: 60px
+}
+
+#studentName {
+    padding-left: 110px
+}
+
+.topCompanies {
+    height: 150px;
+    width: 150px
+}
