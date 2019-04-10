@@ -1,0 +1,21 @@
+#form
+{
+     position: fixed;
+     bottom: 40px;
+     right: 60px;
+     border: 2px solid black;
+     padding: 20px;
+}
+
+body {
+    background-image: url("E:\mars-student-portfolio\Udyog\views\Images\\bgindexpage.png");
+    background-repeat:no-repeat;
+     background-size:cover;
+}
+
+.row
+{
+     position: fixed;
+     top: 30px;
+     right: 180px;
+}
