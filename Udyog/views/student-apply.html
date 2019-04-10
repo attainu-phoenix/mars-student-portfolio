@@ -5,6 +5,7 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +14,42 @@
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-        <link rel="stylesheet" href="CSS/studentApply.css">
+    <link rel="stylesheet" href="CSS/studentApply.css">
     <title>Student-Apply</title>
 </head>
+
 <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h2 class="navHeading">Udyog.com - Student Apply</h2>
+
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <h5> <a href="" class="text-white navbar-brand">Home</a>
+                    </h5>
+                    
+                    <h5> <a href=""
+                            class="text-white navbar-brand">Notification</a>
+                    </h5>
+                    <h5> <a href="" class="text-white navbar-brand">Logout</a>
+                    </h5>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent"
+                    aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+    </nav>
     <div class="container">
         <hr>
         <div class="row" id="titlerow">
-            <div class="offset-md-1 col-md-6" >
+            <div class="offset-md-1 col-md-6">
                 <h3>Job Title</h3>
                 <button class="btn btn-primary">Apply to Job</button>
             </div>
@@ -29,37 +58,46 @@
 
             </div>
             <div class="col-md-1">
-                    <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Share
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">LinkedIn</a>
-                              <a class="dropdown-item" href="#">Facebook</a>
-                              <a class="dropdown-item" href="#">Gmail</a>
-                            </div>
-                          </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle"
+                        type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Share
+                    </button>
+                    <div class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">LinkedIn</a>
+                        <a class="dropdown-item" href="#">Facebook</a>
+                        <a class="dropdown-item" href="#">Gmail</a>
+                    </div>
+                </div>
 
             </div>
         </div>
         <hr>
         <div class="row">
             <div class="col-md-4" id="box1">
-                <P> <h3>Job Description</h3>
-                    <textarea name="" id="" cols="46" rows="10">Job description goes here</textarea>
+                <P>
+                    <h3>Job Description</h3>
+                    <textarea name="" id="" cols="46"
+                        rows="10">Job description goes here</textarea>
                 </P>
             </div>
 
             <div class="col-md-4" id="box2">
-                <P><h3>Company Reviews</h3>
-                    <a href="https://www.glassdoor.co.in/index.htm">Glassdoor Reviews</a>
+                <P>
+                    <h3>Company Reviews</h3>
+                    <a href="https://www.glassdoor.co.in/index.htm">Glassdoor
+                        Reviews</a>
                     <br>
-                    star ratings    reviews
+                    star ratings reviews
                 </P>
             </div>
 
-             <div class="col-md-4" id="box3">
-                <P><h3>Location Map of Company</h3>
+            <div class="col-md-4" id="box3">
+                <P>
+                    <h3>Location Map of Company</h3>
                 </P>
             </div>
         </div>
@@ -68,15 +106,16 @@
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-    crossorigin="anonymous"></script>
-<script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
-    integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-    crossorigin="anonymous"></script>  
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
