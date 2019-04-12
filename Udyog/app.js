@@ -1,7 +1,7 @@
 "use express"
 
 var express = require("express");
-var mongo= require("mongodb");
+var mongo = require("mongodb");
 
 //create app
 var app = express();
@@ -9,13 +9,16 @@ var app = express();
 //app settings
 app.set("view engine", "hbs");
 
+//serve static files
+app.use(express.static('views'));
+
 //app routes
 app.get("/", function(request, response){
     response.render("index.hbs");
 });
 
 app.get("/signUp_recruiter", function(request, response){
-response.render("recruit-signup.hbs");
+    response.render("recruit-signup.hbs");
 });
 
 app.get("/recruiterDash", function(request, response){
