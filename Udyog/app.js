@@ -1,54 +1,67 @@
 "use express"
 
+//External packages
 var express = require("express");
-var mongo = require("mongodb");
+var bodyParser = require("body-parser");
+// var mongodb = require("mongodb");
+
+//Self modules
+var indexPage = require("./routes/Authentication/indexPage.js");
+var recruiterSignup = require("./routes/Authentication/recruiterSignup.js");
+var studentSignup = require("./routes/Authentication/studentSignup.js");
+var recruiterDashboard = require("./routes/Dashboard/recruiterDashboard.js");
+var studentDashboard = require("./routes/Dashboard/studentDashboard.js");
+var recruiterProfile = require("./routes/Profile/recruiterProfile.js");
+var studentProfile = require("./routes/Profile/studentProfile.js");
+var recruiterPostJob = require("./routes/Jobs/recruiterPostJob.js");
+var studentApplyJob = require("./routes/Jobs/studentApplyJob.js");
 
 //create app
 var app = express();
 
 //app settings
 app.set("view engine", "hbs");
+app.use(bodyParser.urlencoded({extended: false}));
 
 //serve static files
-app.use(express.static('views'));
+app.use(express.static('public'));
+
+//connect to mongodb
+// var DB;
+
+// var mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/udyog', {useNewUrlParser: true});
+// mongoClient.connect(function(err) {
+//     if(err) {
+//         console.log("Error connecting to MongoDB");
+//     } else {
+//         console.log("Connection to MongoDB database udyog established");
+//     }
+//     DB = mongoClient.db("udyog");
+
+//     //save the DB variable for all routes
+//     app.locals.DB = DB;
+// });
 
 //app routes
-app.get("/", function(request, response){
-    response.render("index.hbs");
-});
+app.get("/", indexPage.indexPage);
 
-app.get("/signUp_recruiter", function(request, response){
-    response.render("recruit-signup.hbs");
-});
+app.get("/signUp_recruiter", recruiterSignup.getData);
 
-app.get("/recruiterDash", function(request, response){
-    response.render("recruiterDash.hbs");
-});
+app.get("/recruiterDash", recruiterDashboard.getData);
 
-app.get("/recruiterProfile", function(request, response){
-    response.render("recruiterProfile.hbs");
-});
+app.get("/recruiterProfile", recruiterProfile.getData);
 
-app.get("/recruiterPostJob", function(request, response){
-    response.render("recruiterPostJob.hbs");
-});
+app.post("/recruiterProfile", recruiterProfile.postData);
 
+app.get("/recruiterPostJob", recruiterPostJob.getData);
 
-app.get("/signupStudent", function(request, response) {
-    response.render("student-signup.hbs");
-});
+app.get("/signupStudent", studentSignup.getData);
 
-app.get("/studentDash", function(request, response){
-    response.render("studentsDashboard.hbs");
-});
+app.get("/studentDash", studentDashboard.getData);
 
-app.get("/studentProfile", function(request, response){
-    response.render("student-profile-form.hbs");
-});
+app.get("/studentProfile", studentProfile.getData);
 
-app.get("/studentApply", function(request, response){
-    response.render("student-apply.hbs");
-});
+app.get("/studentApply", studentApplyJob.getData);
 console.log("app running")
 
 app.listen(8080);

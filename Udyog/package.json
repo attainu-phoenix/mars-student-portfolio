@@ -1,0 +1,19 @@
+{
+  "name": "udyog",
+  "version": "1.0.0",
+  "description": "udyog is a job portal application.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TEAM MARS",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "hbs": "^4.0.4",
+    "mongodb": "^3.2.3",
+    "multiparty": "^4.2.1"
+  },
+  "devDependencies": {}
+}
