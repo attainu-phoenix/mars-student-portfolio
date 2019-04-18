@@ -40,7 +40,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="offset-md-4 col-md-4">
-                <form action="/recruiterProfile" method="POST">
+                <form action="/recruiterProfile" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Upload Photo</label>
                         <input type="file" class="form-control" id="photo" name="photo" aria-describedby="emailHelp" placeholder="Upload photo">
@@ -82,7 +82,9 @@
                         <textarea class="form-control" name="summary" id="summary" cols="46" rows="5" placeholder="Profile Summary">Text goes here</textarea>
                     </div>
 
-                    <div class="form-check form-check-inline">
+
+                
+                    <div class="form-check form-check-inline" name="recruiterType">
                         <div>
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Direct Employer">
                             <label class="form-check-label" for="inlineRadio1">Direct Employer  &nbsp &nbsp</label>
