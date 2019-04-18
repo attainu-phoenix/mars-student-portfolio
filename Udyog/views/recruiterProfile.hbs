@@ -24,7 +24,7 @@
                 <h5> <a href="/recruiterDash" class="text-white navbar-brand">Home</a> </h5>
                 <h5> <a href="/recruiterProfile" class="text-white navbar-brand">Edit Profile</a> </h5>
                 <h5> <a href="" class="text-white navbar-brand">Notification</a> </h5>
-                <h5> <a href="/" class="text-white navbar-brand">Logout</a> </h5>
+                <h5> <a href="/recruiterLogout" class="text-white navbar-brand">Logout</a> </h5>
               </div>
             </div>
             <nav class="navbar navbar-dark bg-dark">
@@ -40,8 +40,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="offset-md-4 col-md-4">
+<<<<<<< HEAD
                 <form action="/recruiterProfile" method="POST" enctype="multipart/form-data" >
                     <div class="form-group" >
+=======
+                <form action="/recruiterProfile" method="POST">
+                    <div class="form-group">
+>>>>>>> 8ff48420deb3e1b8719d62df51fca3a5cc5f5fe6
                         <label for="exampleInputEmail1">Upload Photo</label>
                         <input type="file" class="form-control" id="photo" name="photo" aria-describedby="emailHelp" placeholder="Upload photo">
                         <small id="emailHelp" class="form-text text-muted"></small>
@@ -82,9 +87,7 @@
                         <textarea class="form-control" name="summary" id="summary" cols="46" rows="5" placeholder="Profile Summary">Text goes here</textarea>
                     </div>
 
-
-                
-                    <div class="form-check form-check-inline" name="recruiterType">
+                    <div class="form-check form-check-inline">
                         <div>
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Direct Employer">
                             <label class="form-check-label" for="inlineRadio1">Direct Employer  &nbsp &nbsp</label>
