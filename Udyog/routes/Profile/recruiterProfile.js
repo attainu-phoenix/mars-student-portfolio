@@ -22,8 +22,9 @@ var postData = function(request, response) {
         designation: designation,
         organization: organization,
         phone: phone,
-        profileSummary : profileSummary,
-        recruiterType : recruiterType,
+        profileSummary: profileSummary,
+        recruiterType: recruiterType,
+        profileImg: profileImg,
     }
       
     console.log(newRecruiter);
@@ -32,7 +33,7 @@ var postData = function(request, response) {
         autoFiles: true,
         uploadDir: "public/recruiterProfile"
     });
-    profileImg.parse(request, function(error, files){
+    profileImg.parse(request, function(error, fields, files){
         console.log(files);
         
         response.send("uploaded");
