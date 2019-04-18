@@ -43,7 +43,7 @@ var postData = function(request, response) {
        autoFiles: true,
        uploadDir: "public/studentProfile/resume"
     });
-           profileImg.parse(request, function(error, data){
+           profileImg.parse(request, function(error,fields, files){
            if(error){
            console.log("error occured while inserting resume to DB")
     }

@@ -14,7 +14,7 @@ var postData = function(request, response) {
     var phone = request.body.phoneNumber;
     var profileSummary = request.body.summary;
     var recruiterType = request.body.recruiterType;
-    var profileImg = request.body.photo 
+   
 
     var newRecruiter = {
         name: name,
@@ -26,32 +26,32 @@ var postData = function(request, response) {
         recruiterType : recruiterType,
     }
       
-    console.log(newRecruiter);
+    //console.log(newRecruiter);
 
     var profileImg = new multiparty.Form({
         autoFiles: true,
         uploadDir: "public/recruiterProfile"
     });
-    profileImg.parse(request, function(error, files){
+    profileImg.parse(request, function(error,fields, files){
         console.log(files);
         
-        response.send("uploaded");
+        //response.send("uploaded");
     }) 
 
      
-    //var DB = request.app.locals.DB;
+    var DB = request.app.locals.DB;
 
   
   
-   // DB.collection("recruiter").insertOne(newRecruiter,function(error, result){
-   //     if(error){
-  //          console.log("error occured while inserting data to DB")
-  //          return;
-  //      }
-  //      response.redirect("/recruiterProfile");
-  //  })
+    DB.collection("recruiter").insertOne(newRecruiter,function(error, result){
+        if(error){
+            console.log("error occured while inserting data to DB")
+            return;
+        }
+        response.redirect("/recruiterProfile");
+    })
 
-  //  console.log(newRecruiter);
+    console.log(newRecruiter);
 
     //response.redirect("/recruiterProfile");
 }
