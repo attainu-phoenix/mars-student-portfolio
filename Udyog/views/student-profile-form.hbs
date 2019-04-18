@@ -32,7 +32,7 @@
                     <h5> <a href=""
                             class="text-white navbar-brand">Notification</a>
                     </h5>
-                    <h5> <a href="/" class="text-white navbar-brand">Logout</a>
+                    <h5> <a href="/recruiterLogout" class="text-white navbar-brand">Logout</a>
                     </h5>
                 </div>
             </div>
@@ -53,7 +53,7 @@
         <div class="row">
             <div class="offset-md-4 col-md-4">
                 <div class="row">
-                    <form>
+                    <form action="/studentProfile" method="POST">
 
                         <p></p>
                         <div class="form-group">
@@ -62,7 +62,7 @@
                             aria-describedby="emailHelp" placeholder="Enter Name">
                         </div>
 
-                        {{!-- <div class="form-group">
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Upload photo</label>
                             <input type="file" class="form-control" id="photo"
                                 name="photo" aria-describedby="emailHelp"
@@ -74,17 +74,17 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Attach
                                 Resume</label>
-                            <input type="file" class="form-control" id="phone"
-                                name="phone" aria-describedby="emailHelp"
+                            <input type="file" class="form-control" id="resume"
+                                name="resume" aria-describedby="emailHelp"
                                 placeholder="Enter Phone Number">
                             <small id="emailHelp"
                                 class="form-text text-muted"></small>
-                        </div> --}}
+                        </div>
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Key Skills</label>
                             <input type="text" class="form-control"
-                                id="designation" name="designation"
+                                id="designation" name="keySkills"
                                 aria-describedby="emailHelp"
                                 placeholder="Key Skills">
 
@@ -93,7 +93,7 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Education</label>
                             <input type="text" class="form-control"
-                                id="organization" name="organization"
+                                id="organization" name="education"
                                 aria-describedby="emailHelp"
                                 placeholder="Enter Highest Education">
 
@@ -105,8 +105,8 @@
                             <textarea class="form-control" name="summary"
                                 id="summary" cols="46" rows="5"
                                 placeholder="Profile Summary">Text goes here</textarea>
-
                         </div>
+
                         <div class="form-group">
                             <label
                                 for="exampleInputPassword1">Experience</label>
@@ -114,12 +114,14 @@
                                 name="experience" id="experience"
                                 placeholder="experience">
                         </div>
+
                         <div class="form-group">
                             <label for="exampleInputPassword1">IT Skills</label>
                             <input type="text" class="form-control"
-                                name="skills" id="skills"
+                                name="itSkills" id="skills"
                                 placeholder="Use comma to separate skills">
                         </div>
+
                         <div class="form-group">
                             <label for="exampleInputPassword1">Projects</label>
                             <input type="text" class="form-control"
@@ -127,12 +129,10 @@
                                 placeholder="Use comma to separate skills">
                         </div>
 
-
                         <div>
                             <p></p>
                             <button type="submit" id="submit" name="submit"
                                 class="btn btn-primary">Submit</button>
-
                         </div>
 
                     </form>
