@@ -3,7 +3,8 @@
 //External packages
 var express = require("express");
 var bodyParser = require("body-parser");
-// var mongodb = require("mongodb");
+var mongodb = require("mongodb");
+var multiparty = require("multiparty");
 
 //Self modules
 var indexPage = require("./routes/Authentication/indexPage.js");
@@ -27,20 +28,20 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static('public'));
 
 //connect to mongodb
-// var DB;
+var DB;
 
-// var mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/udyog', {useNewUrlParser: true});
-// mongoClient.connect(function(err) {
-//     if(err) {
-//         console.log("Error connecting to MongoDB");
-//     } else {
-//         console.log("Connection to MongoDB database udyog established");
-//     }
-//     DB = mongoClient.db("udyog");
-
-//     //save the DB variable for all routes
-//     app.locals.DB = DB;
-// });
+var mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/udyog', {useNewUrlParser: true});
+mongoClient.connect(function(err) {
+     if(err) {
+        console.log("Error connecting to MongoDB");
+     } else {
+         console.log("Connection to MongoDB database udyog established");
+    }
+    DB = mongoClient.db("udyog");
+     //save the DB variable for all routes
+    
+     app.locals.DB = DB;
+});
 
 //app routes
 app.get("/", indexPage.indexPage);
@@ -60,6 +61,8 @@ app.get("/signupStudent", studentSignup.getData);
 app.get("/studentDash", studentDashboard.getData);
 
 app.get("/studentProfile", studentProfile.getData);
+
+app.post("/studentProfile", studentProfile.postData);
 
 app.get("/studentApply", studentApplyJob.getData);
 console.log("app running")
