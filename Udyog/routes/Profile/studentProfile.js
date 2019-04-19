@@ -58,8 +58,6 @@ var postData = function(request, response) {
          response.redirect("/studentProfile");
      })
     })
-
-
 }
 
 exports.getData = getData;
