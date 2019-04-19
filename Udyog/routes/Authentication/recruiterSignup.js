@@ -23,6 +23,7 @@ var postData = function(request, response) {
             if(error) {
                 response.send("error occured while signup");
             } else {
+                request.session.user = user;
                 response.redirect("/recruiterDash");
             }
         });
