@@ -12,19 +12,19 @@ var postData = function(request, response) {
         password: request.body.password
     };
 
-    DB.collection("recruiters").findOne(userDetails, function(error, user) {
+    DB.collection("recruiters").findOne(userDetails, function(error, recruiter) {
         if(error) {
             resposnse.send("db error occurred");
             return;
         }
 
-        if(!user) {
+        if(!recruiter) {
             response.redirect("/recruiterLogin");
             return;
         }
 
         // Set the session for the user.
-        request.session.user = user;
+        request.session.user = recruiter;
 
         response.redirect("/recruiterDash");
     });
