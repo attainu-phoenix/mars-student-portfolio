@@ -33,11 +33,7 @@ var postData = function(request, response) {
         autoFiles: true,
         uploadDir: "public/recruiterProfile"
     });
-<<<<<<< HEAD
-    profileImg.parse(request, function(error,fields, files){
-=======
     profileImg.parse(request, function(error, fields, files){
->>>>>>> 8ff48420deb3e1b8719d62df51fca3a5cc5f5fe6
         console.log(files);
         
         //response.send("uploaded");
