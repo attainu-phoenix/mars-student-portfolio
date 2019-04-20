@@ -65,6 +65,7 @@ app.get("/recruiterProfile", recruiterProfile.getData);
 app.post("/recruiterProfile", recruiterProfile.postData);
 
 app.get("/recruiterPostJob", recruiterPostJob.getData);
+app.post("/recruiterPostJob", recruiterPostJob.postData);
 
 app.get("/signupStudent", studentSignup.getData);
 app.post("/signupStudent", studentSignup.postData);
