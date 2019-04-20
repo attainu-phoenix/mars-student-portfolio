@@ -1,64 +1,77 @@
 'use strict';
-var multiparty = require("multiparty")
+var multiparty = require("multiparty");
+var fs = require("fs");
 
-var getData = function(request, response) {
+var getData = function (request, response) {
     response.render("studentProfile.hbs");
 }
-var postData = function(request, response) {
+var postData = function (request, response) {
     var DB = request.app.locals.DB;
-    // var name = request.body.name;
-    // var mail = request.body.mailId;
-    // var skills = request.body.skills;
-    // var education = request.body.education;
-    // var profileSummary = request.body.summary;
-    // var experience = request.body.experience;
-    // var itSkills = request.body.itSkills;
-    // var projects = request.body.projects;
-    // var profile = request.body.photo;
-    // var resume = request.body.resume
-
-    // var newStudent = {
-    //     name: name,
-    //     mail: mail,
-    //     skills: skills,
-    //     education: education,
-    //     profileSummary: profileSummary,
-    //     experience : experience,
-    //     itSkills : itSkills,
-    //     projects : projects,
-    //     resume : resume,
-    //     profile : profile
-    // }
-    var profileImg = new multiparty.Form({
-        autoFiles: true,
-        uploadDir: "public/studentProfile/profileImg",
-        uploadDir: "public/studentProfile/resume"
-    });
     
-    profileImg.parse(request, function(error, fields, files){
-     var data = {
-         name: fields.name,
-         keySkills: fields.keySkills,
-         education: fields.education,
-         summary: fields.summary,
-         experience: fields.experience,
-         itSkills: fields.itSkills,
-         projects: fields.projects,
-         profileImg: files.photo,
-         resume: files.resume
-     };
- 
-        console.log(data);
- 
-        DB.collection("student").insertOne(data,function(error, result){
-         if(error){
-             console.log("error occured while inserting data to DB")
-             return;
-         }
-         response.redirect("/studentProfile");
-     })
-    })
-}
+    var form = new multiparty.Form();
 
+    form.parse(request, function (error, fields, files) {
+        var name = fields.name;
+        var keySkills = fields.keySkills;
+        var education = fields.education;
+        var summary = fields.summary;
+        var experience = fields.experience;
+        var itSkills = fields.itSkills;
+        var projects = fields.projects;
+        var file1Path = files.photo[0].path.split("\\");
+        var imagePath = files.photo[0].path;
+        var imageName = file1Path[file1Path.length - 1];
+        var file2Path = files.resume[0].path.split("\\");
+        var resumePath = files.resume[0].path;
+        var resumeName = file2Path[file2Path.length - 1];
+
+        var data = {
+            name: name,
+            keySkills: keySkills,
+            education: education,
+            summary: summary,
+            experience: experience,
+            itSkills: itSkills,
+            projects: projects,
+            file1Path: file1Path,
+            imagePath: imagePath,
+            imageName: imageName,
+            file2Path: file2Path,
+            resumePath: resumePath,
+            resumeName: resumeName,
+
+        };
+
+        console.log(data);
+        // First, move the first file to uploads/first directory
+        // fs.rename moves a file from one location to another.
+        // It takes three parameters - file location, new location, callback
+        // So in our case, we need to give the original filepath first and then the new one.
+
+        // Move the first file from tmp folder to uploads/first
+        fs.rename(imagePath, "public/studentProfile/profileImg/" + imageName, function (error) {
+            if (error) {
+                console.log(error);
+                return response.send("error uploading file");
+            }
+
+            // Move the second file from tmp folder to uploads/second
+            fs.rename(resumePath, "public/studentProfile/resume/" + resumeName, function (error) {
+                if (error) {
+                    console.log(error);
+                    return response.send("error uploading file");
+                }
+
+                DB.collection("student").insertOne(data, function (error, result) {
+                    if (error) {
+                        console.log("error occured while inserting data to DB")
+                        return;
+                    }
+                    response.redirect("/studentProfile");
+                });
+            });
+        });
+    });
+}
 exports.getData = getData;
 exports.postData = postData;

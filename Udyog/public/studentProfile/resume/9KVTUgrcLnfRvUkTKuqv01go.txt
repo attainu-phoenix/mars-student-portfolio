@@ -1,0 +1,19 @@
+udyogdb--main
+
+student collection
+>username
+>password
+>profile image
+>student profile
+
+Application
+>will hold resume == will hold students resume
+
+
+recruiter collection
+>username
+>password
+>company profile
+
+jobListing
+>will hold job posting done by various companies.

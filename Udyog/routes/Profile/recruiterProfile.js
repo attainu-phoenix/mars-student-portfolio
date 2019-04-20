@@ -18,17 +18,6 @@ var postData = function(request, response) {
 //    var recruiterType = request.body.recruiterType;
 //    var profileImg = request.body.photo
 
-<<<<<<< HEAD
-    var profileImg = new multiparty.Form({
-        autoFiles: true,
-        uploadDir: "public/recruiterProfile"
-    });
-    profileImg.parse(request, function(error, fields, files){
-        console.log(files);
-        
-        //response.send("uploaded");
-    }) 
-=======
 //    var newRecruiter = {
 //        name: name,
 //        mail: mail,
@@ -39,7 +28,6 @@ var postData = function(request, response) {
 //        recruiterType: recruiterType,
 //        profileImg: profileImg,
 //    }
->>>>>>> 2ee26593272f087ca7959dd4da6a16dc8beb1a1f
 
 //    console.log(newRecruiter);
 
