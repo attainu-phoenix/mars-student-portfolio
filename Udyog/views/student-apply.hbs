@@ -15,7 +15,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/studentApply.css">
-    <title>Student-Apply</title>
+    <title>Udyog.com - Student-Apply</title>
 </head>
 
 <body>
@@ -52,16 +52,17 @@
         <hr>
         <div class="row" id="titlerow">
             <div class="offset-md-1 col-md-6">
-			<h3>
-					{{jobPost.jobTitle}}
-            </h3>
+                <h3>
+                    {{jobPost.jobTitle}}
+                </h3>
                                     
-                <button class="btn btn-primary">Apply to Job</button>
+                <button class="btn btn-secondary">Apply to Job</button>
             </div>
-            <div class="col-md-1">
-                <button class="btn btn-primary">Save</button>
 
+            <div class="col-md-1">
+                <button class="btn btn-secondary">Save</button>
             </div>
+
             <div class="col-md-1">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle"
@@ -82,15 +83,28 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-4 offset-md-4" id="box1">
-                <P>
-                    {{#each student}}
-                        {{#if _id}}
-                            <h3>{{jobDiscription}}</h3>
-                            <h5>MARS</h5>
-                        {{/if}}
-                    {{/each}}
-                </P>
+            <div class="col-md-6 offset-md-1" id="box1">
+                <h5>
+                    Job Description: {{jobPost.jobDescription}}
+                </h5>
+
+                <br>
+
+                <h5>
+                    Desired Candidates: {{jobPost.desiredCandidates}}
+                </h5>
+
+                <br>
+
+                <h5>
+                    Organization Profile: {{jobPost.orgProfile}}
+                </h5>
+
+                <br>
+
+                <h5>
+                    Location: {{jobPost.location}}
+                </h5>
             </div>
         </div>
     </div>

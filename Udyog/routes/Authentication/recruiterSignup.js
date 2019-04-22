@@ -1,7 +1,7 @@
 'use strict';
 
 var getData = function(request, response) {
-    response.render("recruit-signup.hbs");
+    return response.render("recruit-signup.hbs");
 }
 
 var postData = function(request, response) {
@@ -23,8 +23,8 @@ var postData = function(request, response) {
             if(error) {
                 response.send("error occured while signup");
             } else {
-                request.session.user = user;
-                response.redirect("/recruiterDash");
+                request.session.user = null;
+                response.redirect("/recruiterLogin");
             }
         });
         return;

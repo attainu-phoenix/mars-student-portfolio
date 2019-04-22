@@ -71,6 +71,7 @@ app.get("/signupStudent", studentSignup.getData);
 app.post("/signupStudent", studentSignup.postData);
 
 app.get("/studentDash", studentDashboard.getData);
+app.get("/studentDash/:searchJobs", studentDashboard.getData);
 
 app.get("/studentProfile", studentProfile.getData);
 app.post("/studentProfile", studentProfile.postData);

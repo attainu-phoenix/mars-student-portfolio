@@ -3,31 +3,24 @@ var multiparty = require("multiparty");
 var fs = require("fs");
 
 var getData = function (request, response) {
-    var DB = request.app.locals.DB;
-
     if(!request.session.user) {
-         return response.redirect("/");
+        return response.redirect("/");
     }
 
-    DB.collection("student").find({}).toArray(function(error, allPosts){
+    var DB = request.app.locals.DB;
+
+    DB.collection("student").find({}).toArray(function(error, studentProfiles){
         if(error) {
             return response.send("Error fetching data");
         } else {
             var data = {
-                allPosts: allPosts,
+                studentProfiles: studentProfiles,
                 loggedInUser: request.session.user
             };
 
-            // if(data.allPosts._id == data.loggedInUser._id) {
-            //     var newData = {
-            //         allPosts: allPosts
-            //     }
-            // }
-            console.log (request.session.user);
             return response.render("studentProfile.hbs", data);
         }
     });
-      //response.redirect("studentProfile.hbs");
 }
 
 var getFormData = function (request, response) {
@@ -72,7 +65,6 @@ var postData = function (request, response) {
             createdBy: createdBy
         };
 
-        //console.log(data);
         // First, move the first file to uploads/first directory
         // fs.rename moves a file from one location to another.
         // It takes three parameters - file location, new location, callback
@@ -81,21 +73,18 @@ var postData = function (request, response) {
         // Move the first file from tmp folder to uploads/first
         fs.rename(imagePath, "public/studentProfile/profileImg/" + imageName, function (error) {
             if (error) {
-                console.log(error);
                 return response.send("error uploading file");
             }
 
             // Move the second file from tmp folder to uploads/second
             fs.rename(resumePath, "public/studentProfile/resume/" + resumeName, function (error) {
                 if (error) {
-                    console.log(error);
                     return response.send("error uploading file");
                 }
 
                 DB.collection("studentData").insertOne(data, function (error, result) {
                     if (error) {
-                        console.log("error occured while inserting data to DB")
-                        return;
+                        return response.send("Error Inserting Data to DB");
                     }
                    return response.redirect("/studentProfile");
                 });
@@ -103,6 +92,7 @@ var postData = function (request, response) {
         });
     });
 }
+
 exports.getData = getData;
 exports.getFormData = getFormData;
 exports.postData = postData;

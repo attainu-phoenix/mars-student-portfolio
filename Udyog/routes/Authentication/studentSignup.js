@@ -1,7 +1,7 @@
 'use strict';
 
 var getData = function(request, response) {
-    response.render("student-signup.hbs");
+    return response.render("student-signup.hbs");
 }
 
 var postData = function(request, response) {
@@ -19,8 +19,8 @@ var postData = function(request, response) {
             if(error) {
                 response.send("error occured while signup");
             } else {
-                request.session.user = user;
-                response.redirect("/studentDash");
+                request.session.user = null;
+                response.redirect("/");
             }
         });
         return;

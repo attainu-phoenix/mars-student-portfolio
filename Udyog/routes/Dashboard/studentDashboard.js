@@ -2,26 +2,28 @@
 
 var getData = function(request, response) {
     if(!request.session.user) {
-        response.redirect("/");
-        return;
+        return response.redirect("/");
     }
 
     var DB = request.app.locals.DB;
 
-    DB.collection("recruiterPostJobs").find({}).toArray(function(error, allposts) {
-
-        var data = {
-            student: allposts
+    var querysearch = request.query.searchJobs;
+    
+    DB.collection("recruiterPostJobs").find({keySkills: {$regex: querysearch}}).toArray(function(error, jobs) {
+        if(error) {
+            return response.send("Error fetching data");
         }
-         console.log(allposts);
-         return response.render("studentsDashboard.hbs", data);
-    });
+        
+        var data = {
+            jobs: jobs
+        }
 
-    // response.render("studentsDashboard.hbs");
+        return response.render("studentsDashboard.hbs", data);
+    });
 };
 
 // var postData = function(request, response) {
-
+//     var searchJobs = request.body.searchJobs;
 // }
 
 exports.getData = getData;
