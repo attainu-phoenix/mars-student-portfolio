@@ -8,18 +8,19 @@ var postData = function(request, response) {
     var DB = request.app.locals.DB;
 
     var jobTitle = request.body.jobTitle;
-    var summary = request.body.summary;
+    var jobDescription = request.body.jobDescription;
     var keySkills = request.body.keySkills;
+    var location = request.body.location;
     var desiredCandidates = request.body.desiredCandidates;
     var orgProfile = request.body.organizationProfile;
 
     var data = {
         jobTitle: jobTitle,
-        summary: summary,
+        jobDescription: jobDescription,
         keySkills: keySkills,
+        location: location,
         desiredCandidates: desiredCandidates,
-        orgProfile: orgProfile,
-
+        orgProfile: orgProfile
     }
 
     console.log(data);

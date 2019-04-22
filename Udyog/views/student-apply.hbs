@@ -27,7 +27,9 @@
                 <div class="bg-dark p-4">
                     <h5> <a href="/studentDash" class="text-white navbar-brand">Home</a>
                     </h5>
-                    
+                    <h5> <a href="/studentProfile"
+                            class="text-white navbar-brand">Profile</a>
+                    </h5>
                     <h5> <a href=""
                             class="text-white navbar-brand">Notification</a>
                     </h5>
@@ -50,7 +52,14 @@
         <hr>
         <div class="row" id="titlerow">
             <div class="offset-md-1 col-md-6">
-                <h3>Job Title</h3>
+                <h3>
+                    {{#each student}}
+                        {{#if _id}}
+                            {{jobTitle}}
+                        {{/if}}
+                    {{/each}}
+                </h3>
+                                    
                 <button class="btn btn-primary">Apply to Job</button>
             </div>
             <div class="col-md-1">
@@ -77,27 +86,14 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-4" id="box1">
+            <div class="col-md-4 offset-md-4" id="box1">
                 <P>
-                    <h3>Job Description</h3>
-                    <textarea name="" id="" cols="46"
-                        rows="10">Job description goes here</textarea>
-                </P>
-            </div>
-
-            <div class="col-md-4" id="box2">
-                <P>
-                    <h3>Company Reviews</h3>
-                    <a href="https://www.glassdoor.co.in/index.htm">Glassdoor
-                        Reviews</a>
-                    <br>
-                    star ratings reviews
-                </P>
-            </div>
-
-            <div class="col-md-4" id="box3">
-                <P>
-                    <h3>Location Map of Company</h3>
+                    {{#each student}}
+                        {{#if _id}}
+                            <h3>{{jobDiscription}}</h3>
+                            <h5>MARS</h5>
+                        {{/if}}
+                    {{/each}}
                 </P>
             </div>
         </div>

@@ -2,7 +2,7 @@
 
 var getData = function(request, response) {
     if(!request.session.user) {
-        response.send("sorry only logged in users are allowed");
+        response.redirect("/recruiterLogin");
         return;
     }
     

@@ -75,6 +75,8 @@ app.get("/studentDash", studentDashboard.getData);
 app.get("/studentProfile", studentProfile.getData);
 app.post("/studentProfile", studentProfile.postData);
 
+app.get("/studentProfileForm", studentProfile.getFormData);
+
 app.get("/studentApply", studentApplyJob.getData);
 console.log("app running")
 

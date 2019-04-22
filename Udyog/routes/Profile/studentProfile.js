@@ -3,11 +3,40 @@ var multiparty = require("multiparty");
 var fs = require("fs");
 
 var getData = function (request, response) {
-    response.render("studentProfile.hbs");
+    var DB = request.app.locals.DB;
+
+    if(!request.session.user) {
+         return response.redirect("/");
+    }
+
+    DB.collection("student").find({}).toArray(function(error, allPosts){
+        if(error) {
+            return response.send("Error fetching data");
+        } else {
+            var data = {
+                allPosts: allPosts,
+                loggedInUser: request.session.user
+            };
+
+            // if(data.allPosts._id == data.loggedInUser._id) {
+            //     var newData = {
+            //         allPosts: allPosts
+            //     }
+            // }
+            console.log (request.session.user);
+            return response.render("studentProfile.hbs", data);
+        }
+    });
+      //response.redirect("studentProfile.hbs");
 }
+
+var getFormData = function (request, response) {
+    response.render("studentProfileForm.hbs");
+}
+
 var postData = function (request, response) {
     var DB = request.app.locals.DB;
-    
+
     var form = new multiparty.Form();
 
     form.parse(request, function (error, fields, files) {
@@ -24,6 +53,7 @@ var postData = function (request, response) {
         var file2Path = files.resume[0].path.split("\\");
         var resumePath = files.resume[0].path;
         var resumeName = file2Path[file2Path.length - 1];
+        var createdBy = request.session.user._id;
 
         var data = {
             name: name,
@@ -39,10 +69,10 @@ var postData = function (request, response) {
             file2Path: file2Path,
             resumePath: resumePath,
             resumeName: resumeName,
-
+            createdBy: createdBy
         };
 
-        console.log(data);
+        //console.log(data);
         // First, move the first file to uploads/first directory
         // fs.rename moves a file from one location to another.
         // It takes three parameters - file location, new location, callback
@@ -62,16 +92,17 @@ var postData = function (request, response) {
                     return response.send("error uploading file");
                 }
 
-                DB.collection("student").insertOne(data, function (error, result) {
+                DB.collection("studentData").insertOne(data, function (error, result) {
                     if (error) {
                         console.log("error occured while inserting data to DB")
                         return;
                     }
-                    response.redirect("/studentProfile");
+                   return response.redirect("/studentProfile");
                 });
             });
         });
     });
 }
 exports.getData = getData;
+exports.getFormData = getFormData;
 exports.postData = postData;

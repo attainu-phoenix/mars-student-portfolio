@@ -64,17 +64,14 @@
                     <tbody>
                         <tr>
                             <td>
-                                <a href="">Web Developer, SEO Analyst Freshers</a>
+                                {{#each student}}
+                                <a href="/studentApply">  
+                                    <button value={{_id}}>
+                                        {{keySkills}} {{location}} 
+                                    </button>   
+                                </a>
                                 <p></p>
-                                <a href="">Walk - In for UI Developers - 26th Mar'19 - Freshers to Three yrs exp</a>
-                                <p></p>
-                                <a href="">Hiring for Nodejs Freshers with Minfy Technologies in Hyderabad</a>
-                                <p></p>
-                                <a href="">FULL STACK DEVELOPER NODE JS</a>
-                                <p></p>
-                                <a href="">Node.js Backend Developer - Mongodb/ Express.js</a>
-                                <p></p>
-                                <a href="">Software Backend Engineer - Python/ AWS/ Mongodb</a>
+                                {{/each}}
                             </td>
                         </tr>
                     </tbody>
