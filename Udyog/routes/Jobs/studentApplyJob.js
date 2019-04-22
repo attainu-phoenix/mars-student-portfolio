@@ -1,18 +1,25 @@
 'use strict';
 
+var mongo = require("mongodb");
+
 var getData = function(request, response) {
     var DB = request.app.locals.DB;
+	var jobId = request.params.jobId;
 
-    DB.collection("recruiterPostJobs").find({}).toArray(function(error, allposts) {
-       
+    DB.collection("recruiterPostJobs").findOne({ _id: mongo.ObjectId(jobId)}, function(error, jobPost) {
+      
+		if(error) {
+			return response.send("error fetching job from the DB");
+		}
+
         var data = {
-            student: allposts
-        }
-         console.log(allposts);
+            jobPost: jobPost
+        };
+
+		console.log(jobPost)
         
          return response.render("student-apply.hbs", data);
     });
-    // response.render("student-apply.hbs");
 }
 
 exports.getData = getData;

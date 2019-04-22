@@ -52,13 +52,9 @@
         <hr>
         <div class="row" id="titlerow">
             <div class="offset-md-1 col-md-6">
-                <h3>
-                    {{#each student}}
-                        {{#if _id}}
-                            {{jobTitle}}
-                        {{/if}}
-                    {{/each}}
-                </h3>
+			<h3>
+					{{jobPost.jobTitle}}
+            </h3>
                                     
                 <button class="btn btn-primary">Apply to Job</button>
             </div>

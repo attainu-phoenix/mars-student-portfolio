@@ -65,10 +65,8 @@
                         <tr>
                             <td>
                                 {{#each student}}
-                                <a href="/studentApply">  
-                                    <button value={{_id}}>
+                                <a class="btn btn-info" href="/studentApply/{{_id}}">  
                                         {{keySkills}} {{location}} 
-                                    </button>   
                                 </a>
                                 <p></p>
                                 {{/each}}
