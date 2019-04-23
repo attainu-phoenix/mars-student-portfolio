@@ -53,7 +53,6 @@ var getFormData = function (request, response) {
 }
 
 var postData = function (request, response) {
->>>>>>> eebd46a581bc864f528035fd2a9dcb8774892347
     var DB = request.app.locals.DB;
 
     var form = new multiparty.Form();
@@ -89,15 +88,8 @@ var postData = function (request, response) {
             resumePath: resumePath,
             resumeName: resumeName,
             createdBy: createdBy
-<<<<<<< HEAD
-
         };
 
-        //console.log(data);
-=======
-        };
-
->>>>>>> eebd46a581bc864f528035fd2a9dcb8774892347
         // First, move the first file to uploads/first directory
         // fs.rename moves a file from one location to another.
         // It takes three parameters - file location, new location, callback
