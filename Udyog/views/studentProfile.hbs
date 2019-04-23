@@ -56,9 +56,10 @@
                     <form action="/studentProfile" method="POST" enctype="multipart/form-data">
 
                         <p></p>
+                         {{#each allPosts}}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name</label>
-                            <input type="text" class="form-control" id="name" name="name"
+                            <input type="text" class="form-control" id="name" name="name" value="{{name}}"
                             aria-describedby="emailHelp" placeholder="Enter Name">
                         </div>
 
@@ -135,6 +136,12 @@
                                 class="btn btn-primary">Submit</button>
                         </div>
 
+                        <div>
+                            <p></p>
+                            <button type="edit" id="edit" name="edit"
+                                class="btn btn-primary">Edit</button>
+                        </div>
+                        {{/each}}
                     </form>
                 </div>
 
