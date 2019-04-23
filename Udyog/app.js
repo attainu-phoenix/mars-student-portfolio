@@ -79,6 +79,7 @@ app.post("/studentProfile", studentProfile.postData);
 app.get("/studentProfileForm", studentProfile.getFormData);
 
 app.get("/studentApply/:jobId", studentApplyJob.getData);
+app.post("/studentApply/:jobId", studentApplyJob.postData);
 console.log("app running")
 
 app.listen(8080);

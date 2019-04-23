@@ -10,9 +10,9 @@ var getData = function(request, response) {
     var querysearch = request.query.searchJobs;
     
     DB.collection("recruiterPostJobs").find({keySkills: {$regex: querysearch}}).toArray(function(error, jobs) {
-        if(error) {
+        /* if(error) {
             return response.send("Error fetching data");
-        }
+        } */
         
         var data = {
             jobs: jobs
