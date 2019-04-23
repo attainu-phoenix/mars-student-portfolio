@@ -15,19 +15,19 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/studentProfileForm.css">
-    <title>Student Profile Form</title>
+    <title>Udyog.com - Student Profile</title>
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <h2 class="navHeading">Udyog.com - Student Profile Form</h2>
+        <h2 class="text-white">Udyog.com - Student Profile</h2>
 
         <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
                 <div class="bg-dark p-4">
                     <h5> <a href="/studentDash" class="text-white navbar-brand">Home</a>
                     </h5>
-                    <h5> <a href="" class="text-white navbar-brand">Edit
+                    <h5> <a href="/studentProfileForm" class="text-white navbar-brand">Edit
                             Profile</a> </h5>
                     <h5> <a href=""
                             class="text-white navbar-brand">Notification</a>
@@ -53,6 +53,7 @@
         <div class="row">
             <div class="offset-md-4 col-md-4">
                 <div class="row">
+<<<<<<< HEAD
                     <form action="/studentProfile" method="POST" enctype="multipart/form-data">
 
                         <p></p>
@@ -143,16 +144,21 @@
                         </div>
                         {{/each}}
                     </form>
+=======
+                    
+                        {{#each studentProfiles}}
+                            
+                            <h1>{{name}}</h1> 
+                            
+                        {{/each}}
+                       
+>>>>>>> eebd46a581bc864f528035fd2a9dcb8774892347
                 </div>
-
-
             </div>
-            <!--column close-->
-
-
         </div>
+
     </div>
-    </div>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

@@ -14,13 +14,11 @@ var postData = function(request, response) {
 
     DB.collection("student").findOne(userDetails, function(error, student) {
         if(error) {
-            resposnse.send("db error occurred");
-            return;
+            return resposnse.send("db error occurred");
         }
 
         if(!student) {
-            response.redirect("/");
-            return;
+            return response.redirect("/");
         }
 
         // Set the session for the user.

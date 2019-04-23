@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Welcome Recruiter</title>
+    <title>Udyog.com - Recruiter Dashboard</title>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
@@ -33,11 +33,13 @@
     <br>
 
     <div class="container-fluid">
-        <table class="table table-striped">
+        <div class="row">
+            <div class="col">
+<table class="table table-striped">
                <thead class="thead-dark">
                   <tr>
                         <th scope="col">Students Name</th>
-                        <th scope="col">Organization Table</th>
+                        <th scope="col">Company</th>
                         <th scope="col">Institute</th>
                         <th scope="col">Experience </th>
                         <th scope="col">Location</th>
@@ -48,7 +50,9 @@
 
          <tbody>
               <tr>
-                  <th scope="row">1</th>
+                  {{#each students}}
+                  <td scope="row">{{_id}}</td>
+                  {{/each}}
                   <td>mark</td>
                   <td>otto</td>
                   <td>here
@@ -128,6 +132,10 @@
          </tbody>
       </table>
       <br>
+
+            </div>
+        </div>
+        
        
     <table class="table table-bordered">
      <thead class="thead-dark">

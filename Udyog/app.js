@@ -71,11 +71,15 @@ app.get("/signupStudent", studentSignup.getData);
 app.post("/signupStudent", studentSignup.postData);
 
 app.get("/studentDash", studentDashboard.getData);
+app.get("/studentDash/:searchJobs", studentDashboard.getData);
 
 app.get("/studentProfile", studentProfile.getData);
 app.post("/studentProfile", studentProfile.postData);
 
-app.get("/studentApply", studentApplyJob.getData);
+app.get("/studentProfileForm", studentProfile.getFormData);
+
+app.get("/studentApply/:jobId", studentApplyJob.getData);
+app.post("/studentApply/:jobId", studentApplyJob.postData);
 console.log("app running")
 
 app.listen(8080);

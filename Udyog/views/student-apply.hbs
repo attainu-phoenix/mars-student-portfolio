@@ -15,7 +15,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/studentApply.css">
-    <title>Student-Apply</title>
+    <title>Udyog.com - Student-Apply</title>
 </head>
 
 <body>
@@ -27,7 +27,9 @@
                 <div class="bg-dark p-4">
                     <h5> <a href="/studentDash" class="text-white navbar-brand">Home</a>
                     </h5>
-                    
+                    <h5> <a href="/studentProfile"
+                            class="text-white navbar-brand">Profile</a>
+                    </h5>
                     <h5> <a href=""
                             class="text-white navbar-brand">Notification</a>
                     </h5>
@@ -50,13 +52,19 @@
         <hr>
         <div class="row" id="titlerow">
             <div class="offset-md-1 col-md-6">
-                <h3>Job Title</h3>
-                <button class="btn btn-primary">Apply to Job</button>
+                <form action="/studentApply/{{jobPost._id}}" method="post">
+                <h3>
+                    {{jobPost.jobTitle}}
+                </h3>
+                                    
+                <button type="submit" class="btn btn-secondary">Apply to Job</button>
+                </form>
             </div>
-            <div class="col-md-1">
-                <button class="btn btn-primary">Save</button>
 
+            <div class="col-md-1">
+                <button class="btn btn-secondary">Save</button>
             </div>
+
             <div class="col-md-1">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle"
@@ -77,28 +85,28 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-4" id="box1">
-                <P>
-                    <h3>Job Description</h3>
-                    <textarea name="" id="" cols="46"
-                        rows="10">Job description goes here</textarea>
-                </P>
-            </div>
+            <div class="col-md-6 offset-md-1" id="box1">
+                <h5>
+                    Job Description: {{jobPost.jobDescription}}
+                </h5>
 
-            <div class="col-md-4" id="box2">
-                <P>
-                    <h3>Company Reviews</h3>
-                    <a href="https://www.glassdoor.co.in/index.htm">Glassdoor
-                        Reviews</a>
-                    <br>
-                    star ratings reviews
-                </P>
-            </div>
+                <br>
 
-            <div class="col-md-4" id="box3">
-                <P>
-                    <h3>Location Map of Company</h3>
-                </P>
+                <h5>
+                    Desired Candidates: {{jobPost.desiredCandidates}}
+                </h5>
+
+                <br>
+
+                <h5>
+                    Organization Profile: {{jobPost.orgProfile}}
+                </h5>
+
+                <br>
+
+                <h5>
+                    Location: {{jobPost.location}}
+                </h5>
             </div>
         </div>
     </div>

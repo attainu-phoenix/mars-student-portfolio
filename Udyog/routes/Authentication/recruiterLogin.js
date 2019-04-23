@@ -1,7 +1,7 @@
 'use strict';
 
 var getData = function(request, response) {
-    response.render("recruiterLogin.hbs");
+    return response.render("recruiterLogin.hbs");
 }
 
 var postData = function(request, response) {
@@ -14,13 +14,11 @@ var postData = function(request, response) {
 
     DB.collection("recruiters").findOne(userDetails, function(error, recruiter) {
         if(error) {
-            resposnse.send("db error occurred");
-            return;
+            return resposnse.send("db error occurred");
         }
 
         if(!recruiter) {
-            response.redirect("/recruiterLogin");
-            return;
+            return response.redirect("/recruiterLogin");
         }
 
         // Set the session for the user.
