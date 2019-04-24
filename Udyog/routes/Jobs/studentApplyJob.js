@@ -45,7 +45,8 @@ var postData = function(request, response) {
 
         DB.collection("studentApply").insertOne({
             jobId: jobId,
-            userId: request.session.user._id,
+            studentId: request.session.user._id,
+            recruiterId: jobPost.recruiterId,
             
             // Insert some extra data for showing to the user
             studentName: request.session.user.userName,

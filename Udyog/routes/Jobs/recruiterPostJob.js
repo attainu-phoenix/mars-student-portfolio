@@ -17,6 +17,7 @@ var postData = function(request, response) {
     var location = request.body.location;
     var desiredCandidates = request.body.desiredCandidates;
     var orgProfile = request.body.organizationProfile;
+    var recruiterId = request.session.user._id;
 
     var data = {
         jobTitle: jobTitle,
@@ -24,7 +25,8 @@ var postData = function(request, response) {
         keySkills: keySkills,
         location: location,
         desiredCandidates: desiredCandidates,
-        orgProfile: orgProfile
+        orgProfile: orgProfile,
+        recruiterId : recruiterId
     }
 
     DB.collection("recruiterPostJobs").insertOne(data, function(error, result){

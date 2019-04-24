@@ -4,30 +4,6 @@ var fs = require("fs");
 
 
 var getData = function (request, response) {
-<<<<<<< HEAD
-    var DB = request.app.locals.DB;
-
-        if(!request.session.user) { return response.redirect("/"); }
-    
-    
-        DB.collection("student").find({ createdBy: request.session.user._id }).toArray(function(error, allPosts){
-            if(error) {
-              return response.send("Error fetching blog posts");
-            } else {
-                var data = {
-                    allPosts: allPosts,
-                    loggedInUser: request.session.user
-                };
-                console.log (allPosts)
-              return response.render("studentProfile.hbs", data);
-        
-            }
-        });
-      //response.redirect("studentProfile.hbs");
-    }
-
-    var postData = function (request, response) {
-=======
     if(!request.session.user) {
         return response.redirect("/");
     }
