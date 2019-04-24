@@ -1,5 +1,7 @@
 'use strict'
 
+var mongo = require("mongodb");
+
 var getData = function(request, response) {
     if(!request.session.user) {
         return response.redirect("/recruiterLogin");
@@ -19,12 +21,10 @@ var getData = function(request, response) {
             allPost: allPost
         };
    
-         return response.render("student-apply.hbs", data);
+         return response.render("viewProfile.hbs", data);
     });
-    
+
 }
-
-
 
 
 
