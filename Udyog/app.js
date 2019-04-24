@@ -75,10 +75,12 @@ app.get("/studentDash/:searchJobs", studentDashboard.getData);
 
 app.get("/studentProfile", studentProfile.getData);
 app.post("/studentProfile", studentProfile.postData);
+app.get("/studentProfile/:studentId", studentProfile.getData);
 
 app.get("/studentProfileForm", studentProfile.getFormData);
 
 app.get("/studentApply/:jobId", studentApplyJob.getData);
+app.post("/studentApply/:jobId", studentApplyJob.postData);
 console.log("app running")
 
 app.listen(8080);

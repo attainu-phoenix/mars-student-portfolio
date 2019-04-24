@@ -52,11 +52,13 @@
         <hr>
         <div class="row" id="titlerow">
             <div class="offset-md-1 col-md-6">
+                <form action="/studentApply/{{jobPost._id}}" method="post">
                 <h3>
                     {{jobPost.jobTitle}}
                 </h3>
                                     
-                <button class="btn btn-secondary">Apply to Job</button>
+                <button type="submit" class="btn btn-secondary">Apply to Job</button>
+                </form>
             </div>
 
             <div class="col-md-1">

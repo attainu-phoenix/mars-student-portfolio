@@ -12,7 +12,7 @@ var postData = function(request, response) {
         password: request.body.password
     };
 
-    DB.collection("students").findOne(userDetails, function(error, student) {
+    DB.collection("student").findOne(userDetails, function(error, student) {
         if(error) {
             return resposnse.send("db error occurred");
         }
