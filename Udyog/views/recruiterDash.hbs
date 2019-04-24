@@ -39,11 +39,11 @@
                <thead class="thead-dark">
                   <tr>
                         <th scope="col">Students Name</th>
-                        <th scope="col">Company</th>
-                        <th scope="col">Institute</th>
+                        <th scope="col">Job Applied</th>
+                        {{!-- <th scope="col">Institute</th>
                         <th scope="col">Experience </th>
                         <th scope="col">Location</th>
-                        <th scope="col">Notice Period</th>
+                        <th scope="col">Notice Period</th> --}}
                         <th scope="col">Date Applied</th>
                   </tr> 
             </thead>   
@@ -51,10 +51,10 @@
          <tbody>
               <tr>
                   {{#each students}}
-                  <td scope="row">{{_id}}</td>
-                  {{/each}}
-                  <td>mark</td>
-                  <td>otto</td>
+                  <td scope="row">{{studentName}}</td>
+                  <td>{{jobTitle}}</td>
+            
+                  {{!-- <td>otto</td>
                   <td>here
                         <br>
                         <br>
@@ -70,14 +70,18 @@
                         <br>
                         <button type="button" class="btn btn-secondary">Reject</button>
                         <button type="button" class="btn btn-secondary">Download</button>
-                  </td>
-                  <td>@mdo
+                 --}}  </td>
+                  <td> {{timeOfApply}}
+                
                         <br>
                         <br>
-                        <button type="button" class="btn btn-secondary">Save for future</button>
+                        <button type="button" class="btn btn-secondary">
+                            <a href="/studentProfile/:{{studentId}}">View Profile</a>
+                        </button>
                    </td>
-             </tr>  
-              <tr>
+             </tr>
+             {{/each}} 
+              {{!-- <tr>
                   <th scope="row">1</th>
                   <td>mark</td>
                   <td>otto</td>
@@ -128,7 +132,7 @@
                         <br>
                         <button type="button" class="btn btn-secondary">Save for future</button> 
                     </td>
-              </tr> 
+              </tr> --}} 
          </tbody>
       </table>
       <br>
