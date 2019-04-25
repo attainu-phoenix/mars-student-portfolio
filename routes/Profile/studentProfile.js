@@ -1,6 +1,7 @@
 'use strict';
 var multiparty = require("multiparty");
 var fs = require("fs");
+var path = require("path");
 
 
 var getData = function (request, response) {
@@ -42,13 +43,14 @@ var postData = function (request, response) {
         var experience = fields.experience;
         var itSkills = fields.itSkills;
         var projects = fields.projects;
-        var file1Path = files.photo[0].path.split("\\");
-        var imagePath = files.photo[0].path;
-        var imageName = file1Path[file1Path.length - 1];
-        var file2Path = files.resume[0].path.split("\\");
-        var resumePath = files.resume[0].path;
-        var resumeName = file2Path[file2Path.length - 1];
-        var createdBy = request.session.user._id;
+
+		// Get the correct file names and paths
+		var imagePath = files.photo[0].path;
+		var resumePath = files.resume[0].path;
+		var imageName = path.basename( imagePath );
+		var resumeName = path.basename( resumePath );
+
+		var createdBy = request.session.user._id;
 
         var data = {
             name: name,
@@ -58,10 +60,8 @@ var postData = function (request, response) {
             experience: experience,
             itSkills: itSkills,
             projects: projects,
-            file1Path: file1Path,
             imagePath: imagePath,
             imageName: imageName,
-            file2Path: file2Path,
             resumePath: resumePath,
             resumeName: resumeName,
             createdBy: createdBy
