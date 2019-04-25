@@ -49,19 +49,15 @@
 
         <div class="row">
             <div class="offset-md-4 col-md-4">
-                <div class="row">
-                    
-                        {{#each studentProfiles}}
                             
-                        <h3>Name:{{name}}</h3>
+                        <h3>Name:{{loggedInUser.name}}</h3>
                             
-                        <h3>Key Skills:{{keySkills}}</h3>
+                        <h3>Key Skills:{{loggedInUser.keySkills}}</h3>
 
-                        <h3>Summary:{{summary}}</h3>
-                            
-                        {{/each}}
-                       
-                </div>
+                        <h3>Summary:{{loggedInUser.summary}}</h3>
+
+                        <h3>Education: {{loggedInUser.education}}</h3>
+                        <img src="/studentProfile/profileImg/{{loggedInUser.imageName}}" alt="">
             </div>
         </div>
 

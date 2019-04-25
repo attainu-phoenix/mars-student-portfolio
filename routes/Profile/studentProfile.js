@@ -2,6 +2,7 @@
 var multiparty = require("multiparty");
 var fs = require("fs");
 var path = require("path");
+var mongo = require("mongodb");
 
 
 var getData = function (request, response) {
@@ -12,18 +13,10 @@ var getData = function (request, response) {
     var DB = request.app.locals.DB;
     console.log(request.session.user);
 
-    DB.collection("student").find({}).toArray(function(error, studentProfiles){
-        if(error) {
-            return response.send("Error fetching data");
-        } else {
-            var data = {
-                studentProfiles: studentProfiles,
-                loggedInUser: request.session.user
-            };
-
-            return response.render("studentProfile.hbs", data);
-        }
-    });
+    var data = {
+        loggedInUser: request.session.user
+    };
+    return response.render("studentProfile.hbs", data);
 }
 
 var getFormData = function (request, response) {
@@ -84,12 +77,13 @@ var postData = function (request, response) {
                     return response.send("error uploading file");
                 }
 
-                DB.collection("student").insertOne(data, function (error, result) {
-                    if (error) {
-                        return response.send("Error Inserting Data to DB");
-                    }
-                   return response.redirect("/studentProfile");
+                // Update the student profile
+                var studentId = request.session.user._id;
+                DB.collection("students").update({_id: mongo.ObjectID(studentId)}, {$set: data}, function(error) {
+                    if(error) { return response.send("error updating profile."); }
+                    return response.redirect("/studentProfile");
                 });
+
             });
         });
     });
