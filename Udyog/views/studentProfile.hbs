@@ -15,7 +15,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/studentProfileForm.css">
-    <title>Udyog.com - Student Profile</title>
+    <title>Student Profile</title>
 </head>
 
 <body>
@@ -29,10 +29,7 @@
                     </h5>
                     <h5> <a href="/studentProfileForm" class="text-white navbar-brand">Edit
                             Profile</a> </h5>
-                    <h5> <a href=""
-                            class="text-white navbar-brand">Notification</a>
-                    </h5>
-                    <h5> <a href="/recruiterLogout" class="text-white navbar-brand">Logout</a>
+                    <h5> <a href="/studentLogout" class="text-white navbar-brand">Logout</a>
                     </h5>
                 </div>
             </div>
@@ -53,96 +50,17 @@
         <div class="row">
             <div class="offset-md-4 col-md-4">
                 <div class="row">
-                    <form action="/studentProfile" method="POST" enctype="multipart/form-data">
+                    
+                        {{#each studentProfiles}}
+                            
+                        <h3>Name:{{name}}</h3>
+                            
+                        <h3>Key Skills:{{keySkills}}</h3>
 
-                        <p></p>
-                         {{#each allPosts}}
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{name}}"
-                            aria-describedby="emailHelp" placeholder="Enter Name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Upload photo</label>
-                            <input type="file" class="form-control" id="photo"
-                                name="photo" aria-describedby="emailHelp"
-                                placeholder="Upload profile photo">
-                            <small id="emailHelp"
-                                class="form-text text-muted"></small>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Attach
-                                Resume</label>
-                            <input type="file" class="form-control" id="resume"
-                                name="resume" aria-describedby="emailHelp"
-                                placeholder="Enter Phone Number">
-                            <small id="emailHelp"
-                                class="form-text text-muted"></small>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Key Skills</label>
-                            <input type="text" class="form-control"
-                                id="designation" name="keySkills"
-                                aria-describedby="emailHelp"
-                                placeholder="Key Skills">
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Education</label>
-                            <input type="text" class="form-control"
-                                id="organization" name="education"
-                                aria-describedby="emailHelp"
-                                placeholder="Enter Highest Education">
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Profile
-                                Summary</label>
-                            <textarea class="form-control" name="summary"
-                                id="summary" cols="46" rows="5"
-                                placeholder="Profile Summary">Text goes here</textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label
-                                for="exampleInputPassword1">Experience</label>
-                            <input type="number" class="form-control"
-                                name="experience" id="experience"
-                                placeholder="experience">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">IT Skills</label>
-                            <input type="text" class="form-control"
-                                name="itSkills" id="skills"
-                                placeholder="Use comma to separate skills">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Projects</label>
-                            <input type="text" class="form-control"
-                                name="projects" id="projects"
-                                placeholder="Use comma to separate skills">
-                        </div>
-
-                        <div>
-                            <p></p>
-                            <button type="submit" id="submit" name="submit"
-                                class="btn btn-primary">Submit</button>
-                        </div>
-
-                        <div>
-                            <p></p>
-                            <button type="edit" id="edit" name="edit"
-                                class="btn btn-primary">Edit</button>
-                        </div>
+                        <h3>Summary:{{summary}}</h3>
+                            
                         {{/each}}
-                    </form>
+                       
                 </div>
             </div>
         </div>

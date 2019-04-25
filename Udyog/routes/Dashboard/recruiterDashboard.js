@@ -17,7 +17,7 @@ var getData = function(request, response) {
 
         data.allPosts = allPosts;
 
-        var jobId = mongo.ObjectId(request.params.id);
+        // var jobId = mongo.ObjectId(request.params.id);
 
         DB.collection("studentApply").find({recruiterId:request.session.user._id}).toArray(function(error, students) {
             if(error) {return response.send("error fetching data");}
