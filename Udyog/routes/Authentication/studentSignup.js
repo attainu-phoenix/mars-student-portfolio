@@ -15,7 +15,7 @@ var postData = function(request, response) {
     };
 
     if(user.password == confirmPassword) {
-        DB.collection("student").insertOne(user, function(error) {
+        DB.collection("students").insertOne(user, function(error) {
             if(error) {
                 response.send("error occured while signup");
             } else {
