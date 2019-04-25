@@ -9,6 +9,7 @@ var getData = function (request, response) {
     }
 
     var DB = request.app.locals.DB;
+    console.log(request.session.user);
 
     DB.collection("student").find({}).toArray(function(error, studentProfiles){
         if(error) {
@@ -83,7 +84,7 @@ var postData = function (request, response) {
                     return response.send("error uploading file");
                 }
 
-                DB.collection("studentData").insertOne(data, function (error, result) {
+                DB.collection("student").insertOne(data, function (error, result) {
                     if (error) {
                         return response.send("Error Inserting Data to DB");
                     }

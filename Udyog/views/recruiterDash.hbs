@@ -18,7 +18,6 @@
                 <h5> <a href="" class="text-white navbar-brand">Home</a> </h5>
                 <h5> <a href="/recruiterProfile" class="text-white navbar-brand">Edit Profile</a> </h5>
                 <h5> <a href="/recruiterPostJob" class="text-white navbar-brand">Post Job</a> </h5>
-                <h5> <a href="" class="text-white navbar-brand">Notification</a> </h5>
                 <h5> <a href="/recruiterLogout" class="text-white navbar-brand">Logout</a> </h5>
                 </div>
             </div>
@@ -40,10 +39,6 @@
                   <tr>
                         <th scope="col">Students Name</th>
                         <th scope="col">Job Applied</th>
-                        {{!-- <th scope="col">Institute</th>
-                        <th scope="col">Experience </th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Notice Period</th> --}}
                         <th scope="col">Date Applied</th>
                   </tr> 
             </thead>   
@@ -54,122 +49,18 @@
                   <td scope="row">{{studentName}}</td>
                   <td>{{jobTitle}}</td>
             
-                  {{!-- <td>otto</td>
-                  <td>here
-                        <br>
-                        <br>
-                        <button type="button" class="btn btn-secondary">View Resume</button>  
-                  </td>
-                  <td>@mdo
-                        <br>
-                        <br>
-                        <button type="button" class="btn btn-secondary">Short List</button>
-                  </td>
-                  <td>@mdo
-                        <br>
-                        <br>
-                        <button type="button" class="btn btn-secondary">Reject</button>
-                        <button type="button" class="btn btn-secondary">Download</button>
-                 --}}  </td>
                   <td> {{timeOfApply}}
-                
-                        <br>
-                        <br>
-                        <button type="button" class="btn btn-secondary">
-                            <a href="/viewProfile/:{{studentId}}">View Profile</a>
-                        </button>
+
                    </td>
              </tr>
              {{/each}} 
-              {{!-- <tr>
-                  <th scope="row">1</th>
-                  <td>mark</td>
-                  <td>otto</td>
-                  <td>here
-                      <br>
-                       <br>
-                       <button type="button" class="btn btn-secondary">View Resume</button>  
-                  </td>
-                   <td>@mdo
-                      <br>
-                      <br>
-                      <button type="button" class="btn btn-secondary">Short List</button>
-                  </td> 
-                  <td>@mdo
-                      <br>
-                      <br> 
-                      <button type="button" class="btn btn-secondary">Reject</button>
-                      <button type="button" class="btn btn-secondary">Download</button>
-                  </td>
-                  <td>@mdo
-                      <br>
-                      <br>
-                      <button type="button" class="btn btn-secondary">Save for future</button> 
-                  </td>
-             </tr> 
-              <tr>
-                    <th scope="row">1</th>
-                    <td>mark</td>
-                    <td>otto</td>
-                    <td>here
-                        <br>
-                         <br>
-                         <button type="button" class="btn btn-secondary">View Resume</button>  
-                    </td>
-                     <td>@mdo
-                        <br>
-                        <br>
-                        <button type="button" class="btn btn-secondary">Short List</button>
-                    </td> 
-                    <td>@mdo
-                        <br>
-                        <br> 
-                        <button type="button" class="btn btn-secondary">Reject</button>
-                        <button type="button" class="btn btn-secondary">Download</button>
-                    </td>
-                    <td>@mdo
-                        <br>
-                        <br>
-                        <button type="button" class="btn btn-secondary">Save for future</button> 
-                    </td>
-              </tr> --}} 
+               
          </tbody>
       </table>
       <br>
 
             </div>
         </div>
-        
-       
-    <table class="table table-bordered">
-     <thead class="thead-dark">
-        <tr>
-        <th scope="col">Open Position</th>
-        <th scope="col">Position Job Description</th>
-        <th scope="col">Applied Candidates</th>
-        </tr> 
-     </thead>
-        <tbody>
-            <tr>
-                <td>Front End</td>
-                <td></td>
-                <td></td>
-            </tr>
-
-            <tr>
-               <td>Java Script</td>
-               <td></td>
-               <td></td>
-            </tr>
-
-            <tr>
-                <td>Full Stack</td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>        
-              
-    </table>
 
  </div>
 

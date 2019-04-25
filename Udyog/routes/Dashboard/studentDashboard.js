@@ -9,11 +9,7 @@ var getData = function(request, response) {
 
     var querysearch = request.query.searchJobs;
     
-    DB.collection("recruiterPostJobs").find({keySkills: {$regex: querysearch}}).toArray(function(error, jobs) {
-        /* if(error) {
-            return response.send("Error fetching data");
-        } */
-        
+    DB.collection("recruiterPostJobs").find({keySkills: {$regex: querysearch}}).toArray(function(error, jobs) { 
         var data = {
             jobs: jobs
         }
@@ -22,9 +18,4 @@ var getData = function(request, response) {
     });
 };
 
-// var postData = function(request, response) {
-//     var searchJobs = request.body.searchJobs;
-// }
-
 exports.getData = getData;
-// exports.postData = postData;
