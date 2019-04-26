@@ -40,7 +40,6 @@
                         <th scope="col">Students Name</th>
                         <th scope="col">Job Applied</th>
                         <th scope="col">Date Applied</th>
-                        <th scope="col">Profile</th>
                   </tr> 
             </thead>   
 
@@ -50,11 +49,9 @@
                   <td scope="row">{{studentName}}</td>
                   <td>{{jobTitle}}</td>
             
-                  <td> {{timeOfApply}}</td>
+                  <td> {{timeOfApply}}
 
-                  <td scope="col">
-                            <a class="btn btn-secondary" href="/studentProfile?studentId={{studentId}}" target="_blank">View Profile</a>
-                    </td>
+                   </td>
              </tr>
              {{/each}} 
                

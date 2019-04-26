@@ -7,7 +7,7 @@ var cloudinary = require("cloudinary").v2;
 
 
 var getData = function (request, response) {
-    if(!request.session.user) {
+    if (!request.session.user) {
         return response.redirect("/");
     }
 
@@ -18,7 +18,7 @@ var getData = function (request, response) {
     var studentId;
 
 
-    if(request.query.studentId) {
+    if (request.query.studentId) {
         // This is a public profile request.
         // Get the student id here and do the rendering.
         studentId = request.query.studentId;
@@ -29,8 +29,8 @@ var getData = function (request, response) {
         studentId = request.session.user._id;
     }
 
-    DB.collection("students").findOne({_id: mongo.ObjectID(studentId)}, function(error, student) {
-        if(error) { return response.send("error fetching user data"); }
+    DB.collection("students").findOne({ _id: mongo.ObjectID(studentId) }, function (error, student) {
+        if (error) { return response.send("error fetching user data"); }
         data.student = student;
         return response.render("studentProfile.hbs", data);
     });
@@ -54,13 +54,13 @@ var postData = function (request, response) {
         var itSkills = fields.itSkills;
         var projects = fields.projects;
 
-		// Get the correct file names and paths
-		var imagePath = files.photo[0].path;
-		var resumePath = files.resume[0].path;
-		var imageName = path.basename( imagePath );
-		var resumeName = path.basename( resumePath );
+        // Get the correct file names and paths
+        var imagePath = files.photo[0].path;
+        var resumePath = files.resume[0].path;
+        var imageName = path.basename(imagePath);
+        var resumeName = path.basename(resumePath);
 
-		var createdBy = request.session.user._id;
+        var createdBy = request.session.user._id;
 
         var data = {
             name: name,
@@ -78,17 +78,17 @@ var postData = function (request, response) {
         };
 
 
-        cloudinary.uploader.upload(imagePath, {resource_type: "auto"}, function(error, imageUploaded){
-            if(error){
+        cloudinary.uploader.upload(imagePath, { resource_type: "auto" }, function (error, imageUploaded) {
+            if (error) {
                 console.log(error);
                 return response.send("error uploading");
             }
 
             // Use cloudinary uploaded URL for profile picture.
             data.imagePath = imageUploaded.secure_url;
-            
-            cloudinary.uploader.upload(resumePath, {resource_type: "auto"}, function(error, resumeUploaded){
-                if(error){
+
+            cloudinary.uploader.upload(resumePath, { resource_type: "auto" }, function (error, resumeUploaded) {
+                if (error) {
                     console.log(error);
                     return response.send("error uploading");
                 }
@@ -98,17 +98,17 @@ var postData = function (request, response) {
 
                 // Update the student profile
                 var studentId = request.session.user._id;
-                DB.collection("students").update({_id: mongo.ObjectID(studentId)}, {$set: data}, function(error) {
-                    if(error) { return response.send("error updating profile."); }
+                DB.collection("students").update({ _id: mongo.ObjectID(studentId) }, { $set: data }, function (error) {
+                    if (error) { return response.send("error updating profile."); }
                     return response.redirect("/studentProfile");
                 }); // update ends
 
             }); // resume upload ends
-    
+
         }); // profile picture upload ends
 
     }); // form parse end
-       
+
 } // route ends
 
 exports.getData = getData;
