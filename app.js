@@ -32,8 +32,9 @@ app.use(express.static('public'));
 
 //connect to mongodb
 var DB;
+var DB_URL = process.env.DB_URL || 'mongodb://127.0.0.1:27017/udyog';
 
-var mongoClient = new mongodb.MongoClient('mongodb://127.0.0.1:27017/udyog', {useNewUrlParser: true});
+var mongoClient = new mongodb.MongoClient(DB_URL, {useNewUrlParser: true});
 mongoClient.connect(function(err) {
     if(err) {
         console.log("Error connecting to MongoDB");
@@ -88,4 +89,4 @@ app.post("/studentApply/:jobId", studentApplyJob.postData);
 
 console.log("app running")
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080);

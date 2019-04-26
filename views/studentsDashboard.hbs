@@ -22,7 +22,7 @@
             <div class="collapse" id="navbarToggleExternalContent">
               <div class="bg-dark p-4">
                 <h5> <a href="/studentDash" class="text-white navbar-brand">Home</a> </h5>
-                <h5> <a href="/studentProfile" class="text-white navbar-brand">Profile</a> </h5>
+                <h5> <a href="/studentProfile" class="text-white navbar-brand">View Profile</a> </h5>
                 <h5> <a href="/studentLogout" class="text-white navbar-brand">Logout</a> </h5>
               </div>
             </div>
@@ -50,6 +50,8 @@
 
             <div class="col-md-5" id="profilePic">
                 <img src="Images/profile-picture.jpg" class="rounded float-right img-fluid" id="imgResize" alt="Profile-picture">
+
+                <img src="/studentProfile/profileImg/{{loggedInUser.imageName}}" alt="" height="180px" width="180px">
             </div>
 
             <div class="col-md-9">

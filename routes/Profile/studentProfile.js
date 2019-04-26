@@ -3,6 +3,7 @@ var multiparty = require("multiparty");
 var fs = require("fs");
 var path = require("path");
 var mongo = require("mongodb");
+var cloudinary = require("cloudinary").v2;
 
 
 var getData = function (request, response) {
@@ -11,7 +12,7 @@ var getData = function (request, response) {
     }
 
     var DB = request.app.locals.DB;
-    console.log(request.session.user);
+    //console.log(request.session.user);
 
     var data = {
         loggedInUser: request.session.user
@@ -64,9 +65,9 @@ var postData = function (request, response) {
         // fs.rename moves a file from one location to another.
         // It takes three parameters - file location, new location, callback
         // So in our case, we need to give the original filepath first and then the new one.
-
         // Move the first file from tmp folder to uploads/first
-        fs.rename(imagePath, "public/studentProfile/profileImg/" + imageName, function (error) {
+
+        /* fs.rename(imagePath, "public/studentProfile/profileImg/" + imageName, function (error) {
             if (error) {
                 return response.send("error uploading file");
             }
@@ -75,8 +76,24 @@ var postData = function (request, response) {
             fs.rename(resumePath, "public/studentProfile/resume/" + resumeName, function (error) {
                 if (error) {
                     return response.send("error uploading file");
+                } */
+
+            cloudinary.uploader.upload(imagePath, {resource_type: "auto"}, function(error, result){
+                if(error){
+                    console.log(error);
+                    return response.send("error uploading");
                 }
 
+                console.log(result.secure_url);
+                
+                cloudinary.uploader.upload(resumePath, {resource_type: "auto"}, function(error, result){
+                    if(error){
+                        console.log(error);
+                       return response.send("error uploading");
+                    }
+                });
+                });
+                
                 // Update the student profile
                 var studentId = request.session.user._id;
                 DB.collection("students").update({_id: mongo.ObjectID(studentId)}, {$set: data}, function(error) {
@@ -85,8 +102,7 @@ var postData = function (request, response) {
                 });
 
             });
-        });
-    });
+       
 }
 
 exports.getData = getData;

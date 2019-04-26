@@ -27,6 +27,8 @@
                 <div class="bg-dark p-4">
                     <h5> <a href="/studentDash" class="text-white navbar-brand">Home</a>
                     </h5>
+                    <h5> <a href="/studentProfile" class="text-white navbar-brand">View Profile</a>
+                    </h5>
                     <h5> <a href="/studentProfileForm" class="text-white navbar-brand">Edit
                             Profile</a> </h5>
                     <h5> <a href="/studentLogout" class="text-white navbar-brand">Logout</a>
@@ -57,7 +59,14 @@
                         <h3>Summary:{{loggedInUser.summary}}</h3>
 
                         <h3>Education: {{loggedInUser.education}}</h3>
-                        <img src="/studentProfile/profileImg/{{loggedInUser.imageName}}" alt="">
+
+                        <h3>Experience: {{loggedInUser.experience}}</h3>
+
+                        <h3>projects: {{loggedInUser.projects}}</h3>
+
+                        <img src="{{loggedInUser.imageName}}" alt="" height="180px" width="180px">
+                        <br>
+                        <a href="/studentProfile/resume/{{loggedInUser.resumeName}}">View Resume</a>
             </div>
         </div>
 

@@ -4,12 +4,14 @@
   "description": "udyog is a job portal application.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "TEAM MARS",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cloudinary": "^1.14.0",
     "express": "^4.16.4",
     "express-session": "^1.16.1",
     "hbs": "^4.0.4",
