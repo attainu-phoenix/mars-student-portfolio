@@ -52,21 +52,21 @@
         <div class="row">
             <div class="offset-md-4 col-md-4">
                             
-                        <h3>Name:{{loggedInUser.name}}</h3>
+                        <h3>Name:{{student.name}}</h3>
                             
-                        <h3>Key Skills:{{loggedInUser.keySkills}}</h3>
+                        <h3>Key Skills:{{student.keySkills}}</h3>
 
-                        <h3>Summary:{{loggedInUser.summary}}</h3>
+                        <h3>Summary:{{student.summary}}</h3>
 
-                        <h3>Education: {{loggedInUser.education}}</h3>
+                        <h3>Education: {{student.education}}</h3>
 
-                        <h3>Experience: {{loggedInUser.experience}}</h3>
+                        <h3>Experience: {{student.experience}}</h3>
 
-                        <h3>projects: {{loggedInUser.projects}}</h3>
+                        <h3>projects: {{student.projects}}</h3>
 
-                        <img src="{{loggedInUser.imageName}}" alt="" height="180px" width="180px">
+                        <img src="{{student.imagePath}}" alt="" height="180px" width="180px">
                         <br>
-                        <a href="/studentProfile/resume/{{loggedInUser.resumeName}}">View Resume</a>
+                        <a target="_blank" href="{{student.resumePath}}">View Resume</a>
             </div>
         </div>
 
