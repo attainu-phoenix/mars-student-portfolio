@@ -61,49 +61,39 @@ var postData = function (request, response) {
             createdBy: createdBy
         };
 
-        // First, move the first file to uploads/first directory
-        // fs.rename moves a file from one location to another.
-        // It takes three parameters - file location, new location, callback
-        // So in our case, we need to give the original filepath first and then the new one.
-        // Move the first file from tmp folder to uploads/first
 
-        /* fs.rename(imagePath, "public/studentProfile/profileImg/" + imageName, function (error) {
-            if (error) {
-                return response.send("error uploading file");
+        cloudinary.uploader.upload(imagePath, {resource_type: "auto"}, function(error, imageUploaded){
+            if(error){
+                console.log(error);
+                return response.send("error uploading");
             }
 
-            // Move the second file from tmp folder to uploads/second
-            fs.rename(resumePath, "public/studentProfile/resume/" + resumeName, function (error) {
-                if (error) {
-                    return response.send("error uploading file");
-                } */
-
-            cloudinary.uploader.upload(imagePath, {resource_type: "auto"}, function(error, result){
+            // Use cloudinary uploaded URL for profile picture.
+            data.imagePath = imageUploaded.secure_url;
+            
+            cloudinary.uploader.upload(resumePath, {resource_type: "auto"}, function(error, resumeUploaded){
                 if(error){
                     console.log(error);
                     return response.send("error uploading");
                 }
 
-                console.log(result.secure_url);
-                
-                cloudinary.uploader.upload(resumePath, {resource_type: "auto"}, function(error, result){
-                    if(error){
-                        console.log(error);
-                       return response.send("error uploading");
-                    }
-                });
-                });
-                
+                // Use cloudinary uploaded URL for the resume.
+                data.resumePath = resumeUploaded.secure_url;
+
                 // Update the student profile
                 var studentId = request.session.user._id;
                 DB.collection("students").update({_id: mongo.ObjectID(studentId)}, {$set: data}, function(error) {
                     if(error) { return response.send("error updating profile."); }
                     return response.redirect("/studentProfile");
-                });
+                }); // update ends
 
-            });
+            }); // resume upload ends
+    
+        }); // profile picture upload ends
+
+    }); // form parse end
        
-}
+} // route ends
 
 exports.getData = getData;
 exports.getFormData = getFormData;
