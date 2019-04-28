@@ -10,6 +10,7 @@
 
 body {
     background-image: url("bgindexpage.png");
+    max-width:100%;
     background-repeat:no-repeat;
     background-size:cover;
 }
