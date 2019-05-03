@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/studentProfileForm.css">
     <title>viewProfile</title>
 </head>
 <body>
@@ -25,13 +30,70 @@
         </div>
     </nav>
      
-    <form action="/studentProfile"  method="get">
-        <h3>
-            {{#each allPost}}
-            Student Name: {{name}}
-            {{/each}}
-        </h3>
-    </form>
-        
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="offset-md-3 col-md-4">
+                <table class="table table-striped">
+                    <thead>
+                        <th>
+                            <tr>
+                                <th>Name:</th>
+                                 <td><h5>{{students.name}}</h5></td>
+                             </tr>
+                             <tr>
+                                 <th>Key Skills:</th>
+                                <td><h5>{{students.keySkills}}</h5></td>
+                             </tr>
+
+                             <tr>
+                                 <th>Summary:</th>
+                                <td><h5>{{students.summary}}</h5></td>
+                             </tr>
+
+                             <tr>
+                                 <th>Education:</th>
+                                <td><h5>{{students.education}}</h5></td>
+                             </tr>
+                             <tr>
+                                 <th>Experience:</th>
+                                <td><h5>{{students.experience}}</h5></td>
+                             </tr>
+                             <tr>
+                                 <th>Projects:</th>
+                                <td><h5>{{students.projects}}</h5></td>
+                             </tr>
+                            
+                        </th>
+                    </thead>
+
+                </table>
+                
+            </div>
+            <div class="col-md-4">
+                <img style="margin-top: 20px" src="{{students.imagePath}}" alt="" height="180px"
+                    width="180px">
+                <br>
+                <br>
+                <button class="btn btn-secondary">
+                    <a style="color:white"="_blank"
+                        href="{{students.resumePath}}">View Resume</a>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
 </body>
 </html>
