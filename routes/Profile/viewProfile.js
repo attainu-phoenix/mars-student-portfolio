@@ -13,24 +13,29 @@ var getData = function(request, response) {
 
     var studentId = request.params.studentId;
 
-    DB.collection("studentApply").find({_id: mongo.ObjectId(studentId)}, function(error, allPost) {
-      
-		if(error) {
-			return response.send("error fetching job from the DB");
-		}
+    if (request.query.studentId) {
+        // This is a public profile request.
+        // Get the student id here and do the rendering.
+        studentId = request.query.studentId;
 
-        data.allPost = allPost;
+    } else {
+        // This is a logged in user's request.
+        // Get his/her data and do the rendering.
+        studentId = request.session.user._id;
+    }
 
-        DB.collection("student").find({_id:mongo.ObjectId(studentId)}, function(error, students) {
+        
+
+        DB.collection("students").findOne({_id:mongo.ObjectId(studentId)}, function(error, student) {
             if(error) {
                 return response.send("Error fetching Data");
             }
 
-            data.students = students;
+            data.students = student;
             console.log(data);
             return response.render("viewProfile.hbs", data);
         })
-    });
+
 
 }
 
