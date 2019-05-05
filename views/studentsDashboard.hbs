@@ -39,7 +39,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-9">
                 <form class="form-inline">
                     <div class="form-group mb-2">
                         <label class="sr-only">search</label>
@@ -47,15 +47,6 @@
                     </div>
                     <button type="submit" class="btn btn-secondary mx-sm-5 mb-2">Search</button>
                 </form>
-            </div>
-
-            <div class="col-md-5" id="profilePic">
-                <img src="Images/profile-picture.jpg" class="rounded float-right img-fluid" id="imgResize" alt="Profile-picture">
-
-                <img src="/studentProfile/profileImg/{{loggedInUser.imageName}}" alt="" height="180px" width="180px">
-            </div>
-
-            <div class="col-md-9">
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -78,9 +69,14 @@
                 </table>
             </div>
 
-            <div class="col-md-3" id="studentName">
-                <h2>Student Name</h2>
+            <div class="col-md-3">
+                <img style="margin-top: 55px" src="{{student.imagePath}}" alt="" height="180px" width="180px">
+
+                <h4>{{student.name}}</h4>
             </div>
+
+        </div>
+            
 
             <div class="col-md-9">
                 <table class="table">
