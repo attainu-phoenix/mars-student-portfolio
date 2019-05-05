@@ -83,6 +83,7 @@ app.get("/viewProfile/:studentId", viewProfile.getData);
 app.get("/viewProfile", viewProfile.getData);
 
 app.get("/studentProfileForm", studentProfile.getFormData);
+app.get("/recruiterProfileForm", recruiterProfile.getFormData);
 
 app.get("/studentApply/:jobId", studentApplyJob.getData);
 app.post("/studentApply/:jobId", studentApplyJob.postData);

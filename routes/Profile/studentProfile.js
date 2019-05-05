@@ -1,6 +1,5 @@
 'use strict';
 var multiparty = require("multiparty");
-var fs = require("fs");
 var path = require("path");
 var mongo = require("mongodb");
 var cloudinary = require("cloudinary").v2;

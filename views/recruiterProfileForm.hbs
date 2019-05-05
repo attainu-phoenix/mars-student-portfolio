@@ -1,0 +1,111 @@
+<!--
+    Author: Srinivas Namballa
+    Date Created: 10/04/2019
+    Description: This html page is used to display the Recruiter's Profile of Udyog.com
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Udyog - Recruiter Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h2 class="text-white">Udyog.com - Recruiter Profile</h2>
+
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+              <div class="bg-dark p-4">
+                <h5> <a href="/recruiterDash" class="text-white navbar-brand">Home</a> </h5>
+                <h5> <a href="/recruiterProfile" class="text-white navbar-brand">Edit Profile</a> </h5>
+                <h5> <a href="/recruiterLogout" class="text-white navbar-brand">Logout</a> </h5>
+              </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </nav>
+        </div>
+    </nav>
+
+    <br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="offset-md-4 col-md-4">
+                <form action="/recruiterProfile" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Upload Photo</label>
+                        <input type="file" class="form-control" id="photo" name="photo" aria-describedby="emailHelp" placeholder="Upload photo">
+                        <small id="emailHelp" class="form-text text-muted"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" class="form-control" id="name" name="name"
+                        aria-describedby="emailHelp" placeholder="Enter Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Mail-id</label>
+                        <input type="text" class="form-control" id="mailId" name="mailId"
+                        aria-describedby="emailHelp" placeholder="Enter Mail-id">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Designation</label>
+                        <input type="text" class="form-control" id="designation" name="designation"
+                        aria-describedby="emailHelp" placeholder="Enter Designation">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Organization</label>
+                        <input type="text" class="form-control" id="organization" name="organization"
+                        aria-describedby="emailHelp" placeholder="Enter Organiztion">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Phone Number</label>
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+                        aria-describedby="emailHelp" placeholder="Enter Phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Profile Summary</label>
+                        <textarea class="form-control" name="summary" id="summary" cols="46" rows="5" placeholder="Enter Profile Summary"></textarea>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <div>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Direct Employer">
+                            <label class="form-check-label" for="inlineRadio1">Direct Employer  &nbsp &nbsp</label>
+                        </div>
+                        
+                        <div>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" value="Recruitment Agency">
+                            <label class="form-check-label" for="inlineRadio2">Recruitment Agency</label>
+                        </div>
+                    </div>
+
+                    <p></p>
+
+                    <div>
+                        <button type="submit" id="submit" name="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
